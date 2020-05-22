@@ -1,0 +1,4 @@
+<div>
+    <app-comment *ngFor="let item of comments" [comment]="item"></app-comment>
+    <app-create-comment (newComment)="addComment($event)"></app-create-comment>
+</div>
