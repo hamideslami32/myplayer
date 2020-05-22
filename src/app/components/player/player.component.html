@@ -3,11 +3,11 @@
     <video [ngClass]="'border-radius'" [src]="videoUrl" width="100%" controls autoplay></video>
     <div [ngClass]="'like-section'">
         <div [ngClass]="'title'">
-            Do you like it?
+            Do you like it ?
         </div>
         <div [ngClass]="'options'">
-            <span>Like It</span>
-            <span>Don't like It</span>    
+            <span (click)="setLike('like')" [ngClass]="{'active-like': likeStatus === 'like', 'like': true}">Like It <i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+            <span (click)="setLike('dislike')" [ngClass]="{'active-dislike': likeStatus === 'dislike', 'dislike': true}">Don't like It <i class="fa fa-thumbs-down"></i></span>    
         </div>
     </div>
 </div>

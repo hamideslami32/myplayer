@@ -16,14 +16,40 @@
             margin-bottom: 30px;
         }
         .options {
-            span {
-                padding: 10px 15px;
-                border: 1px solid navy;
+            &>span {
+                padding: 15px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 border-radius: 8px;
+                i {
+                    margin-left: 10px;
+                    font-size: 22px;
+                }
+            }
+            .like {
+                border: 1px solid #50C54C;
+                color: #50C54C;
                 &:hover {
-                    background-color: navy;
+                    background-color: #50C54C;
                     color: white;
                 }
+            }
+            .dislike {
+                border: 1px solid #d32626;
+                color: #d32626;
+                &:hover {
+                    background-color: #d32626;
+                    color: white;
+                }
+            }
+            .active-like {
+                background-color: #50C54C;
+                color: white;
+            }
+            .active-dislike {
+                background-color: #d32626;
+                color: white;
             }
             & > span:first-of-type {
                 margin-right: 20px;
