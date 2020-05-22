@@ -1,4 +1,10 @@
 .app {
     width: 800px;
     margin: 20px auto;
+    .title {
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
 }

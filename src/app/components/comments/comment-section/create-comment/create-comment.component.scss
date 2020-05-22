@@ -27,5 +27,9 @@
         padding: 20px;
         font-size: 18px;
         font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            background-color: lighten($color: navy, $amount: 4);
+        }
     }
 }
