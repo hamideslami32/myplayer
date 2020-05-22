@@ -1,0 +1,201 @@
+1. What are directives in Angular? Explain it.
+
+A: 
+Decorator that marks a class as an Angular directive. You can define your own directives to attach custom behavior to elements in the DOM. it is declared as @directive. We have 3 directives in Angular. The directives are listed below
+
+    • Component Directives
+These form the main class having details of how the component should be processed, instantiated and used at runtime.
+
+    • Structural Directives
+A structure directive basically deals with manipulating the dom elements. Structural directives have a * sign before the directive. For example, *ngIf and *ngFor.
+
+    • Attribute Directives
+Attribute directives deal with changing the look and behavior of the dom element. You can create your own directives as shown below.
+
+
+2. Explain the process of digest cycle in Angular?
+
+A: 
+
+
+3. Differentiate between one-way binding and two-way data binding?
+
+A:
+    • One-way Data Binding
+One-way data binding will bind the data from the component to the view (DOM) or from view to the component. One-way data binding is unidirectional. You can only bind the data from component to the view or from view to the component.
+
+- From Component to View
+    • Interpolation Binding: Interpolation refers to binding expressions into marked up language.
+    • Property Binding: Property binding is used to set a property of a view element. The binding sets the property to the value of a template expression.
+    • Attribute Binding: Attribute binding is used to set a attribute property of a view element.
+    • Class Binding: Class binding is used to set a class property of a view element.
+    • Style Binding: Style binding is used to set a style of a view element.
+
+- From View to Component
+
+    • One-way data binding from view to the component can be achieved by using the event binding technique
+
+
+    • Two-way Data Binding
+
+Two-way data binding in Angular will help users to exchange data from the component to view and from view to the component. It will help users to establish communication bi-directionally. Like (ngModel)
+
+
+4.What‘s the basic syntax of a Decorator in Angular?
+
+A: 
+
+function Console(target) {
+  console.log('Our decorated class', target);
+}
+
+@Console
+class ExampleClass {
+  constructor() {
+    console.log('Yo!');
+  }
+}
+
+
+5.What is Transpiling in Angular?
+
+A:
+The compiler takes the TypeScript code and converts it into JavaScript. This process is commonly referred to as transpiling, and since the TypeScript compiler does it, it's called a transpiler.
+
+    • Transpiling: code from a high level language gets converted to another high level language.
+
+
+6.What is AOT Compilation?
+
+A:
+The Angular ahead-of-time (AOT) compiler converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code. Compiling your application during the build process provides a faster rendering in the browser.
+
+Here are some reasons you might want to use AOT.
+
+    • Faster rendering With AOT
+    • Fewer asynchronous requests
+    • Smaller Angular framework download size
+    • Detect template errors earlier
+    • Better security AOT compiles
+
+
+Angular offers two ways to compile your application:
+
+    • Just-in-Time (JIT)
+    • Ahead-of-Time (AOT)
+
+
+
+7.How do you update the view if your data model is updated outside the ‘Zone’?
+
+A:
+https://stackoverflow.com/questions/45338970/updating-angular-view-from-outside
+
+If you'd like to manually fire an Angular change detection loop in a function, you can inject a reference to ChangeDetectorRef into your components, and call the detectChanges() method to fire this.
+
+Will look something like this:
+
+// import ChangeDetectorRef
+import { ChangeDetectorRef } from '@angular/core'
+
+// Your component's constructor
+constructor(changeDetector : ChangeDetectorRef)
+{ ... }
+
+// Your setKey method
+setKey(result) {
+    this.key = result;
+    this.changeDetector.detectChanges();
+}
+
+
+8.Why do we need lazy loading of modules and how is it implemented?
+
+A:
+loading modules on demand—to minimize the amount of code that needs to be loaded at startup.
+Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.
+
+To lazy load Angular modules, use loadchildren (instead of component) in your AppRoutingModule routes configuration as follows.
+
+const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+  }
+];
+
+
+9.Can you give us an overview of Angular architecture?
+
+A:
+
+image: https://angular.io/generated/images/guide/architecture/overview2.png
+
+The architecture diagram identifies the eight main building blocks of an Angular application:
+
+    • Modules
+    • Components
+    • Templates
+    • Metadata
+    • Data binding
+    • Directives
+    • Services
+    • Dependency injection
+
+
+10. what is observable and how it works?
+
+A:
+Observables are lazy collections of multiple values over time.
+
+    • Observables are lazy
+    • Observables can have multiple values over time
+
+Angular makes use of observables as an interface to handle a variety of common asynchronous operations. For example:
+
+    • You can define custom events that send observable output data from a child to a parent component.
+    • The HTTP module uses observables to handle AJAX requests and responses.
+    • The Router and Forms modules use observables to listen for and respond to user-input events.
+
+
+
+
+
+11. what is rxjs?
+
+A:
+RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables that makes it easier to compose asynchronous or callback-based code.
+
+RxJS provides an implementation of the Observable type, which is needed until the type becomes part of the language and until browsers support it. The library also provides utility functions for creating and working with observables. These utility functions can be used for:
+
+    • Converting existing code for async operations into observables
+    • Iterating through the values in a stream
+    • Mapping values to different types
+    • Filtering streams
+    • Composing multiple streams
+
+In RxJS, you represent asynchronous data streams using observable sequences or also just called observables. Observables are very flexible and can be used using push or pull patterns.
+
+The most important concepts you need to know about Rx are:
+    • Observables
+    • Observers
+    • Subscriptions
+
+
+
+
+
+sources: 
+
+    1. https://angular.io/
+    2. https://www.geeksforgeeks.org/angular-7-directives/
+    3. https://www.tutorialspoint.com/angular4/angular4_directives.htm
+    4. https://www.pluralsight.com/guides/one-and-two-way-data-binding-angular
+    5. https://ultimatecourses.com/blog/angular-decorators
+    6. https://www.oreilly.com/library/view/angular-6-by/9781788835176/ae0bb7f9-4f5b-4944-8a4c-fb8f9dd3e03d.xhtml
+    7. https://dev.to/ummeq/transpiling-in-angular-3p8a
+    8. https://stackoverflow.com/questions/45338970/updating-angular-view-from-outside
+    9. https://medium.com/@sundeepkumar.me/understanding-angular-8-architecture-bf1eb1bb8e0d
+    10. https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3
+    11. https://medium.com/angular-in-depth/rxjs-in-angular-part-1c5409610d8e
+    
