@@ -1,7 +1,31 @@
-.input {
+.create-comment {
+    border: 1px solid #bbb;
     padding: 20px;
-    font-size: 18px;
-    &:hover {
-        background-color: #eee;
+    .title {
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    textarea {
+        width: 100%;
+        padding: 20px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        border-bottom: 2px solid navy;
+        margin-bottom: 20px;
+        &:hover {
+            background-color: #eee;
+        }
+    }
+    button {
+        width: 100%;
+        display: block;
+        outline: none;
+        background-color: navy;
+        color: #eee;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: bold;
     }
 }

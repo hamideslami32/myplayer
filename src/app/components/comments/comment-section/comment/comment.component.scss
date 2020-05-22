@@ -1,7 +1,12 @@
-div {
-    border: 1px solid grey;
-    border-radius: 8px;
+.comment {
     margin: 20px 0;
     padding: 20px;
-    width: 70%;
+    width: 100%;
+    span {
+        color: #999;
+    }
+    p {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
 }

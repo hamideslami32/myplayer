@@ -1,4 +1,13 @@
-<div>
-    <h2>{{title}}</h2>
-    <video [src]="videoUrl" width="70%" controls autoplay></video>
+<div [ngClass]="'player box-shadow border-radius'">
+    <h1>{{title}}</h1>
+    <video [ngClass]="'border-radius'" [src]="videoUrl" width="100%" controls autoplay></video>
+    <div [ngClass]="'like-section'">
+        <div [ngClass]="'title'">
+            Do you like it?
+        </div>
+        <div [ngClass]="'options'">
+            <span>Like It</span>
+            <span>Don't like It</span>    
+        </div>
+    </div>
 </div>
